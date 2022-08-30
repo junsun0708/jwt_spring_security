@@ -2,6 +2,7 @@ package com.example.jwtspringsecurity.dto;
 
 import lombok.*;
 
+//토큰의 값을 헤더에서 get,set
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
