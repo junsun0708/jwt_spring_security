@@ -12,6 +12,9 @@ public class JwtSpringSecurityApplication {
 	
 	/**
 	 * 
+	 * \\
+	 참고 : https://bcp0109.tistory.com/301
+	 
 1. signup (가입)
 # Request
 POST http://localhost:8080/auth/signup

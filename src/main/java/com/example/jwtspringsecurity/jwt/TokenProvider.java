@@ -40,6 +40,7 @@ public class TokenProvider {
     this.key = Keys.hmacShaKeyFor(keyBytes);
   }
 
+  //유저 정보를 받아 Access Token 과 Refresh Token 을 생성
   public TokenDto generateTokenDto(Authentication authentication) {
     // 권한들 가져오기
     String authorities = authentication.getAuthorities().stream()
@@ -64,6 +65,7 @@ public class TokenProvider {
         .accessTokenExpiresIn(accessTokenExpiresIn.getTime()).refreshToken(refreshToken).build();
   }
 
+  //JWT 토큰을 복호화하여 토큰에 들어 있는 정보를 꺼냄
   public Authentication getAuthentication(String accessToken) {
     // 토큰 복호화
     Claims claims = parseClaims(accessToken);
@@ -83,6 +85,7 @@ public class TokenProvider {
     return new UsernamePasswordAuthenticationToken(principal, "", authorities);
   }
 
+  //토큰 정보를 검증
   public boolean validateToken(String token) {
     try {
       Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
