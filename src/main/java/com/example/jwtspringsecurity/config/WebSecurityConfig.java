@@ -34,8 +34,8 @@ public class WebSecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     //http에서 사용하기 위해
-    //http.httpBasic().disable().csrf().disable().sessionManagement()
-    http.httpBasic().and().csrf().disable().sessionManagement()
+    http.httpBasic().disable().csrf().disable().sessionManagement()
+    //http.httpBasic().and().csrf().disable().sessionManagement()
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
         .accessDeniedHandler(jwtAccessDeniedHandler)
