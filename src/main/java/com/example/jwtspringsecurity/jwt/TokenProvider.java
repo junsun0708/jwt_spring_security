@@ -101,7 +101,8 @@ public class TokenProvider {
     }
     return false;
   }
-
+  
+  //토큰을 claims형태로 생성 - 권한 정보 체크
   private Claims parseClaims(String accessToken) {
     try {
       return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();
